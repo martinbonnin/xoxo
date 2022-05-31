@@ -40,7 +40,7 @@ publishing {
 
             artifactId = "xoxo"
             groupId = "net.mbonnin.xoxo"
-            version = "0.2-SNAPSHOT"
+            version = "0.2"
 
             pom {
                 name.set(artifactId)
