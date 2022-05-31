@@ -7,12 +7,7 @@ Xoxo is designed for dynamic parsing in small JVM-only projects like [Kotlin scr
 ## Installation
 
 ```kotlin
-repositories {
-    maven {
-        url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-    }
-}
-implementation("net.mbonnin.xoxo:xoxo:0.1-SNAPSHOT")
+implementation("net.mbonnin.xoxo:xoxo:0.1")
 ```
 
 ## Read the text content of the first \<div\> tag in a HTML file

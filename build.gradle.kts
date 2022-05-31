@@ -106,6 +106,9 @@ tasks.register("ci") {
     if (shouldPublishSnapshots()) {
         dependsOn(tasks.named("publishAllPublicationsToOssSnapshotsRepository"))
     }
+    if (isTag()) {
+        dependsOn(tasks.named("publishAllPublicationsToOssStagingRepository"))
+    }
 }
 
 fun shouldPublishSnapshots(): Boolean {
