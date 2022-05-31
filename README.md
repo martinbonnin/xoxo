@@ -25,19 +25,20 @@ File("index.html").toXmlDocument()
 ## Find all elements with a "videoId" attribute and display their duration
 
 ```kotlin
-        """
-            <root>
-                <items>
-                    <item videoId="1" title="title1">
-                        <duration>30:30</duration>
-                    </item>
-                    <item videoId="2" title="title2">
-                        <duration>31:00</duration>
-                    </item>
-                </items>
-            </root>
-        """.trimIndent()
-    .toXmlDocument()
+val xmlString = """
+    <root>
+        <items>
+            <item videoId="1" title="title1">
+                <duration>30:30</duration>
+            </item>
+            <item videoId="2" title="title2">
+                <duration>31:00</duration>
+            </item>
+        </items>
+    </root>
+""".trimIndent()
+
+xmlString.toXmlDocument()
     .root
     .walkElements()
     .filter { it.attributes.containsKey("videoId") }
