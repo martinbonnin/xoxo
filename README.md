@@ -1,4 +1,4 @@
-# Xoxo
+# Xoxo 😘
 
 Xoxo is a simple wrapper around [org.w3c.dom](https://docs.oracle.com/javase/8/docs/api/index.html?org/w3c/dom/package-summary.html) to parse XML using nice Kotlin APIs. No more `NodeList`, `.item()`, etc... just use `.children`, `.filterIsInstance<>()` and all the [Okio](https://github.com/square/okio) and Kotlin APIs we all love 💙.
 
