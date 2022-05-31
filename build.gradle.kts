@@ -96,7 +96,7 @@ tasks.withType(Sign::class.java).configureEach {
 tasks.register("ci") {
     dependsOn("build")
     if (shouldPublishSnapshots()) {
-        dependsOn(tasks.named("publishAllPublicationsToOssStagingRepository"))
+        dependsOn(tasks.named("publishAllPublicationsToOssSnapshotsRepository"))
     }
 }
 
