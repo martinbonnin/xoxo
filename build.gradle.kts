@@ -40,7 +40,7 @@ publishing {
 
             artifactId = "xoxo"
             groupId = "net.mbonnin.xoxo"
-            version = "0.1-SNAPSHOT"
+            version = "0.2-SNAPSHOT"
 
             pom {
                 name.set(artifactId)
@@ -75,7 +75,15 @@ publishing {
     repositories {
         maven {
             name = "ossSnapshots"
-            url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+            url = uri("https://oss.sonatype.org/content/repositories/snapshots/")
+            credentials {
+                username = System.getenv("OSSRH_USER")
+                password = System.getenv("OSSRH_PASSWORD")
+            }
+        }
+        maven {
+            name = "ossStaging"
+            url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
             credentials {
                 username = System.getenv("OSSRH_USER")
                 password = System.getenv("OSSRH_PASSWORD")
