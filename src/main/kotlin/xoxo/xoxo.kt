@@ -1,5 +1,6 @@
 package xoxo
 
+import okio.Buffer
 import okio.BufferedSource
 import okio.buffer
 import okio.source
@@ -34,6 +35,8 @@ class XmlElement internal constructor(private val element: Element) : XmlNode {
         get() = element.attributes.toList().filterIsInstance<Attr>().associate {
             it.name to it.value
         }
+    val textContent: String
+        get() = walk().filterIsInstance<XmlText>().map { it.content }.joinToString("")
 
     override fun toString(): String {
         return "<$name $attributes>"
@@ -79,6 +82,10 @@ fun BufferedSource.toXmlDocument(): XmlDocument {
 
 fun File.toXmlDocument(): XmlDocument {
     return source().buffer().toXmlDocument()
+}
+
+fun String.toXmlDocument(): XmlDocument {
+    return Buffer().writeUtf8(this).toXmlDocument()
 }
 
 fun XmlNode.walk(): Sequence<XmlNode> {
