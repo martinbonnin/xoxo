@@ -15,7 +15,7 @@ repositories {
 implementation("net.mbonnin.xoxo:xoxo:0.1-SNAPSHOT")
 ```
 
-## Read the text content of the first <div> tag in a HTML file
+## Read the text content of the first \<div\> tag in a HTML file
 
 ```kotlin
 File("index.html").toXmlDocument()
