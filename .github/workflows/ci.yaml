@@ -22,6 +22,6 @@ jobs:
         env:
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
           OSSRH_USER: ${{ secrets.OSSRH_USER }}
-          GPG_KEY: ${{ secrets.GPG_KEY }}
-          GPG_KEY_PASSWORD: ${{ secrets.GPG_KEY_PASSWORD }}
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PRIVATE_KEY_PASSWORD: ${{ secrets.GPG_PRIVATE_KEY_PASSWORD }}
           NET_MBONNIN_PROFILE_ID: ${{ secrets.NET_MBONNIN_PROFILE_ID }}
