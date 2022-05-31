@@ -94,10 +94,17 @@ tasks.withType(Sign::class.java).configureEach {
 }
 
 tasks.register("ci") {
-    if (isTag()) {
-        dependsOn("build")
+    dependsOn("build")
+    if (shouldPublishSnapshots()) {
         dependsOn(tasks.named("publishAllPublicationsToOssStagingRepository"))
     }
+}
+
+fun shouldPublishSnapshots(): Boolean {
+    val eventName = System.getenv("GITHUB_EVENT_NAME")
+    val ref = System.getenv("GITHUB_REF")
+
+    return eventName == "push" && (ref == "refs/heads/main")
 }
 
 fun isTag(): Boolean {
