@@ -124,3 +124,8 @@ fun isTag(): Boolean {
     return ref?.startsWith("refs/tags/") == true
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(8))
+    }
+}
