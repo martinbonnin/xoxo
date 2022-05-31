@@ -77,7 +77,7 @@ publishing {
             name = "ossSnapshots"
             url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
             credentials {
-                username = System.getenv("OSSRH_USERNAME")
+                username = System.getenv("OSSRH_USER")
                 password = System.getenv("OSSRH_PASSWORD")
             }
         }
