@@ -36,7 +36,7 @@ class XmlElement internal constructor(private val element: Element) : XmlNode {
             it.name to it.value
         }
     val textContent: String
-        get() = walk().filterIsInstance<XmlText>().map { it.content }.joinToString("")
+        get() = walk().filterIsInstance<XmlText>().joinToString("") { it.content }
 
     override fun toString(): String {
         return "<$name $attributes>"
