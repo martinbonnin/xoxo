@@ -98,7 +98,7 @@ fun XmlNode.walk(): Sequence<XmlNode> {
 
         val element = stack.removeFirst()
         if (element is XmlElement) {
-            stack.addAll(element.children)
+            stack.addAll(0, element.children)
         }
         element
     }
