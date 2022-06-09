@@ -8,13 +8,7 @@ import org.w3c.dom.*
 import java.io.File
 import javax.xml.parsers.DocumentBuilderFactory
 
-sealed interface XmlNode {
-    val asElement: XmlElement
-        get() = this as XmlElement
-
-    val asText: XmlText
-        get() = this as XmlText
-}
+sealed interface XmlNode
 
 private fun Node.toXmlNode(): XmlNode? {
     return when (this) {
