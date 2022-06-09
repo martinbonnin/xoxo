@@ -55,7 +55,8 @@ class XmlText internal constructor(private val text: Text) : XmlNode {
         get() = text.textContent
 
     override fun toString(): String {
-        return content.substring(0, 50) + "..."
+        return if (content.length < 50) content
+        else content.take(50) + Typography.ellipsis
     }
 }
 
