@@ -6,6 +6,7 @@ import okio.buffer
 import okio.source
 import org.w3c.dom.*
 import java.io.File
+import java.util.*
 import javax.xml.parsers.DocumentBuilderFactory
 
 sealed interface XmlNode {
@@ -89,14 +90,14 @@ fun String.toXmlDocument(): XmlDocument {
 }
 
 fun XmlNode.walk(): Sequence<XmlNode> {
-    val stack = mutableListOf<XmlNode>()
+    val stack: LinkedList<XmlNode> = LinkedList()
     stack.add(this)
     return generateSequence {
         if (stack.isEmpty()) {
             return@generateSequence null
         }
 
-        val element = stack.removeFirst()
+        val element = stack.pop()
         if (element is XmlElement) {
             stack.addAll(0, element.children)
         }
