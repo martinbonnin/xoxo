@@ -109,5 +109,5 @@ fun XmlElement.walkElements(): Sequence<XmlElement> {
 }
 
 fun XmlElement.firstNonBlankTextContent(): String {
-    return walk().filterIsInstance<XmlText>().map { it.content }.filter { it.isNotBlank() }.first().trim()
+    return walk().filterIsInstance<XmlText>().map { it.content }.first { it.isNotBlank() }.trim()
 }
