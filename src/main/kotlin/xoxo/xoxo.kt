@@ -38,8 +38,14 @@ class XmlElement internal constructor(private val element: Element) : XmlNode {
     val textContent: String
         get() = walk().filterIsInstance<XmlText>().joinToString("") { it.content }
 
-    override fun toString(): String {
-        return "<$name $attributes>"
+    override fun toString(): String = buildString {
+        append("<")
+        append(name)
+        if (attributes.isNotEmpty()) {
+            append(" ")
+            append(attributes.toString())
+        }
+        append(">")
     }
 }
 
