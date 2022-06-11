@@ -9,13 +9,12 @@ import java.io.File
 import java.util.*
 import javax.xml.parsers.DocumentBuilderFactory
 
-sealed interface XmlNode {
-    val asElement: XmlElement
-        get() = this as XmlElement
+sealed interface XmlNode
 
-    val asText: XmlText
-        get() = this as XmlText
-}
+/**
+ * Helper function to cast a XMLNode to a XMLElement or XMLText
+ */
+inline fun <reified T : Any> Any?.cast(): T = this as T
 
 private fun Node.toXmlNode(): XmlNode? {
     return when (this) {
