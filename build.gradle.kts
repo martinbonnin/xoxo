@@ -20,7 +20,7 @@ sjmp {
     jvmProject {
         publication {
             groupId = "net.mbonnin.xoxo"
-            version = "0.2"
+            version = "0.3-SNAPSHOT"
             simplePom {
                 name = "xoxo"
                 githubRepository = "martinbonnin/xoxo"
