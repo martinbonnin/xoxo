@@ -20,8 +20,9 @@ sjmp {
     jvmProject {
         publication {
             groupId = "net.mbonnin.xoxo"
-            version = "0.2-SNAPSHOT"
+            version = "0.2"
             simplePom {
+                name = "xoxo"
                 githubRepository = "martinbonnin/xoxo"
                 githubLicensePath = "LICENSE"
                 license = "MIT License"
