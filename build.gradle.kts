@@ -21,7 +21,7 @@ sjmp {
         publication {
             artifactId = "xoxo"
             groupId = "net.mbonnin.xoxo"
-            version = "0.3-SNAPSHOT"
+            version = "0.3"
             simplePom {
                 name = "xoxo"
                 githubRepository = "martinbonnin/xoxo"
