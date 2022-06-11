@@ -19,6 +19,7 @@ tasks.withType(JavaCompile::class.java) {
 sjmp {
     jvmProject {
         publication {
+            artifactId = "xoxo"
             groupId = "net.mbonnin.xoxo"
             version = "0.3-SNAPSHOT"
             simplePom {
