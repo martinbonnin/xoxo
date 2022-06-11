@@ -8,7 +8,6 @@ import kotlin.system.exitProcess
  * You need kotlin 1.3.70+ installed on your machine
  */
 
-
 if (runCommand("git", "status", "--porcelain").isNotEmpty()) {
     println("Your git repo is not clean. Make sur to stash or commit your changes before making a release")
     exitProcess(1)
@@ -65,13 +64,13 @@ fun runCommand(vararg args: String): String {
 fun setCurrentVersion(version: String) {
     val versionFile = File("build.gradle.kts")
     val newContent = versionFile.readLines().map {
-        it.replace(Regex("version = .*"), "version = $version")
+        it.replace(Regex("version = .*"), "version = \"$version\"")
     }.joinToString(separator = "\n", postfix = "\n")
     versionFile.writeText(newContent)
 
     val readme = File("README.md")
     readme.writeText(
-        readme.readText().replace("\"net.mbonnin.xoxo:xoxo:[^\"].*\"", "net.mbonnin.xoxo:xoxo:$version")
+        readme.readText().replace(Regex("\"net.mbonnin.xoxo:xoxo:[^\"].*\""), "\"net.mbonnin.xoxo:xoxo:$version\"")
     )
 }
 
@@ -86,11 +85,11 @@ fun getCurrentVersion(): String {
         "multiple versions found"
     }
 
-    val regex = Regex(".*version = (.*)-SNAPSHOT")
+    val regex = Regex(".*version = \"(.*)-SNAPSHOT\"")
     val matchResult = regex.matchEntire(versionLines.first())
 
     require(matchResult != null) {
-        "'${versionLines.first()}' doesn't match version = (.*)-SNAPSHOT"
+        "'${versionLines.first()}' doesn't match version = \"(.*)-SNAPSHOT\""
     }
 
     return matchResult.groupValues[1] + "-SNAPSHOT"
