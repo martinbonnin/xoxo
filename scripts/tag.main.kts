@@ -37,6 +37,7 @@ while (true) {
 }
 
 setCurrentVersion(tagVersion)
+setDocVersion(tagVersion)
 
 runCommand("git", "commit", "-a", "-m", "release $tagVersion")
 runCommand("git", "tag", "v$tagVersion")
@@ -61,17 +62,19 @@ fun runCommand(vararg args: String): String {
     return output
 }
 
+fun setDocVersion(version: String) {
+    val readme = File("README.md")
+    readme.writeText(
+        readme.readText().replace(Regex("\"net.mbonnin.xoxo:xoxo:[^\"].*\""), "\"net.mbonnin.xoxo:xoxo:$version\"")
+    )
+}
+
 fun setCurrentVersion(version: String) {
     val versionFile = File("build.gradle.kts")
     val newContent = versionFile.readLines().map {
         it.replace(Regex("version = .*"), "version = \"$version\"")
     }.joinToString(separator = "\n", postfix = "\n")
     versionFile.writeText(newContent)
-
-    val readme = File("README.md")
-    readme.writeText(
-        readme.readText().replace(Regex("\"net.mbonnin.xoxo:xoxo:[^\"].*\""), "\"net.mbonnin.xoxo:xoxo:$version\"")
-    )
 }
 
 fun getCurrentVersion(): String {
