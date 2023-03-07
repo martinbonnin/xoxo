@@ -1,0 +1,9 @@
+on:
+  pull_request_target
+
+jobs:
+  build:
+    name: Build and test
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "You've been hacked!!"
