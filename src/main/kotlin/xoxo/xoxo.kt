@@ -13,11 +13,6 @@ sealed interface XmlNode {
     fun asDomNode(): Node
 }
 
-/**
- * Helper function to cast a XMLNode to a XMLElement or XMLText
- */
-inline fun <reified T : Any> Any?.cast(): T = this as T
-
 fun Node.toXmlNode(): XmlNode? {
     return when (this) {
         is Element -> XmlElement(this)
