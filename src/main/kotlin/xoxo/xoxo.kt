@@ -12,9 +12,9 @@ import javax.xml.parsers.DocumentBuilderFactory
 sealed interface XmlNode
 
 /**
- * Helper function to cast a XMLNode to a XMLElement or XMLText
+ * Helper function to cast a [XmlNode] to a [XmlElement] or [XmlText]
  */
-inline fun <reified T : Any> Any?.cast(): T = this as T
+inline fun <reified T : XmlNode> XmlNode?.cast(): T = this as T
 
 fun Node.toXmlNode(): XmlNode? {
     return when (this) {
