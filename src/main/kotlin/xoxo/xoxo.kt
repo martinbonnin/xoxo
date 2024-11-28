@@ -16,7 +16,7 @@ sealed interface XmlNode
  */
 inline fun <reified T : Any> Any?.cast(): T = this as T
 
-private fun Node.toXmlNode(): XmlNode? {
+fun Node.toXmlNode(): XmlNode? {
     return when (this) {
         is Element -> XmlElement(this)
         is Text -> XmlText(this)
