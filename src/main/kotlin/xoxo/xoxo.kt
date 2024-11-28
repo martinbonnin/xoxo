@@ -64,7 +64,7 @@ class XmlText internal constructor(private val text: Text) : XmlNode {
     val content: String
         get() = text.textContent
 
-    override fun asDomNode(): Text = element
+    override fun asDomNode(): Text = text
 
     override fun toString(): String {
         return if (content.length < 50) content
