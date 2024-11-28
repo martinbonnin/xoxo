@@ -9,7 +9,9 @@ import java.io.File
 import java.util.*
 import javax.xml.parsers.DocumentBuilderFactory
 
-sealed interface XmlNode
+sealed interface XmlNode {
+    fun asDomNode(): Node
+}
 
 /**
  * Helper function to cast a XMLNode to a XMLElement or XMLText
@@ -38,6 +40,8 @@ class XmlElement internal constructor(private val element: Element) : XmlNode {
     val textContent: String
         get() = walk().filterIsInstance<XmlText>().joinToString("") { it.content }
 
+    override fun asDomNode(): Element = element
+
     override fun toString(): String = buildString {
         append("<")
         append(name)
@@ -59,6 +63,8 @@ private fun NamedNodeMap.toList(): List<Node> {
 class XmlText internal constructor(private val text: Text) : XmlNode {
     val content: String
         get() = text.textContent
+
+    override fun asDomNode(): Text = element
 
     override fun toString(): String {
         return if (content.length < 50) content
