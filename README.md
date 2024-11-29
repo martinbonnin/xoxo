@@ -7,7 +7,7 @@ Xoxo is designed for dynamic parsing in small JVM-only projects like [Kotlin scr
 ## Installation
 
 ```kotlin
-@file:DependsOn("net.mbonnin.xoxo:xoxo:0.3")
+@file:DependsOn("net.mbonnin.xoxo:xoxo:0.4.0")
 ```
 
 ## Read the text content of the first \<div\> tag in a HTML file
