@@ -1,5 +1,0 @@
-
-
-pluginManagement {
-//    includeBuild("../sjmp")
-}
