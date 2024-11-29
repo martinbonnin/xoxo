@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: gradle/gradle-build-action@v2
       - name: Run the CI task
-        run: ./gradlew sjmpPublishIfNeeded
+        run: ./gradlew build
         env:
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
           OSSRH_USER: ${{ secrets.OSSRH_USER }}
